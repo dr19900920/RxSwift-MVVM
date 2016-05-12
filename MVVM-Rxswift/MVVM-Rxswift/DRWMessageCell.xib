@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rwc-2v-xmQ" customClass="DRWMessageCell" customModule="MVVM_Rxswift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rwc-2v-xmQ" id="cII-d1-835">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3BA-Bo-BAC">
+                        <rect key="frame" x="18" y="18" width="65" height="84"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="65" id="9LP-fN-bPj"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UW6-CX-88Z">
+                        <rect key="frame" x="98" y="33" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Dz-rd-9ee">
+                        <rect key="frame" x="98" y="69" width="36" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Cm-ft-IoE">
+                        <rect key="frame" x="264" y="35" width="33" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="3BA-Bo-BAC" secondAttribute="bottom" constant="18" id="1lf-x6-zty"/>
+                    <constraint firstItem="4Dz-rd-9ee" firstAttribute="bottom" secondItem="3BA-Bo-BAC" secondAttribute="bottom" constant="-15" id="Gsv-Hv-6WF"/>
+                    <constraint firstItem="UW6-CX-88Z" firstAttribute="top" secondItem="3BA-Bo-BAC" secondAttribute="top" constant="15" id="IcY-f4-6bO"/>
+                    <constraint firstItem="3BA-Bo-BAC" firstAttribute="top" secondItem="cII-d1-835" secondAttribute="top" constant="18" id="M6i-LL-hB7"/>
+                    <constraint firstItem="8Cm-ft-IoE" firstAttribute="top" secondItem="UW6-CX-88Z" secondAttribute="top" constant="2" id="X5J-PL-C25"/>
+                    <constraint firstItem="4Dz-rd-9ee" firstAttribute="leading" secondItem="3BA-Bo-BAC" secondAttribute="trailing" constant="15" id="gsY-JF-S1X"/>
+                    <constraint firstItem="UW6-CX-88Z" firstAttribute="leading" secondItem="3BA-Bo-BAC" secondAttribute="trailing" constant="15" id="ok7-bM-Qxz"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="8Cm-ft-IoE" secondAttribute="trailing" constant="15" id="qyL-iH-mcw"/>
+                    <constraint firstItem="3BA-Bo-BAC" firstAttribute="leading" secondItem="cII-d1-835" secondAttribute="leading" constant="18" id="x4r-mm-glB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="iconView" destination="3BA-Bo-BAC" id="flv-rE-sn1"/>
+                <outlet property="nameLabel" destination="UW6-CX-88Z" id="SZU-v6-f8s"/>
+                <outlet property="offerLabel" destination="4Dz-rd-9ee" id="GO2-MS-bQF"/>
+                <outlet property="timeLabel" destination="8Cm-ft-IoE" id="TkP-RF-n8J"/>
+            </connections>
+            <point key="canvasLocation" x="249" y="168"/>
+        </tableViewCell>
+    </objects>
+</document>
