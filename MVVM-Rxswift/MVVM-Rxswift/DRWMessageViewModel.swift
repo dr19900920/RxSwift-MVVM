@@ -19,7 +19,7 @@ class DRWMessageViewModel: NSObject {
     
     func loadMessage() -> Observable<Bool> {
         let url = YRPBaseTool.shareTools.requestUrl(UrlParameter.Msg)
-       return Observable.create { observer -> Disposable in
+       return Observable.create {[weak self] observer -> Disposable in
 
         string(.GET, url,
             parameters: ParametersAPI.Msg(userId: "32324157").parameters!)
@@ -34,7 +34,7 @@ class DRWMessageViewModel: NSObject {
                 onError: { (error) -> Void in
                     observer.onError(error)
             })
-            .addDisposableTo(self.disposeBag)
+            .addDisposableTo(self!.disposeBag)
         return NopDisposable.instance
         }
     }
