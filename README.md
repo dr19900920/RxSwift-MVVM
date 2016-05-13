@@ -5,4 +5,4 @@ ReactiveAnimation – ReactiveCocoa 推出了一个叫 ReactiveAnimation 的子
 BeeFramework – 与ReactiveCocoa类似，BeeFramework用户指南 v1.0。
 Objective-Chain – Objective-Chain是一个面向对象的响应式框架，作者表示该框架吸收了 ReactiveCocoa 的思想，并且想做得更面向对象一些。
 
-https://mcxiaoke.gitbooks.io/rxdocs/content/--ReactiveX文档中文翻译
+ReactiveX文档中文翻译--https://mcxiaoke.gitbooks.io/rxdocs/content/
