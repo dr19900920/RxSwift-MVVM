@@ -76,7 +76,7 @@ public extension ObservableType where E == String {
                     *  由于是好几年前的数据结构,比较混乱,过滤掉第一项垃圾数据
                     */
                     .filter({ (json) -> Bool in
-                        return json.dictionary?.count <= 2
+                        return json.dictionary?.count > 2
                     })
                     /**
                     *  数据转模型

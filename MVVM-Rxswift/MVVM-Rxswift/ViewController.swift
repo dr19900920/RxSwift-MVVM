@@ -53,15 +53,15 @@ class ViewController: UIViewController {
     /**
      上拉加载-由于数据没有加分页,所以嘿嘿你懂得 这里 只是写一个例子
      */
-    private func requestPullUp() {
-        weak var tempSelf = self
-        messagesViewModel.loadMessage(false).subscribeNext { (success) -> Void in
-            if success {
-                tempSelf!.dataSource = tempSelf!.messagesViewModel.list
-            }
-            self.tableView.reloadData()
-            }.addDisposableTo(disposeBag)
-    }
+//    private func requestPullUp() {
+//        weak var tempSelf = self
+//        messagesViewModel.loadMessage(false).subscribeNext { (success) -> Void in
+//            if success {
+//                tempSelf!.dataSource = tempSelf!.messagesViewModel.list
+//            }
+//            self.tableView.reloadData()
+//            }.addDisposableTo(disposeBag)
+//    }
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
