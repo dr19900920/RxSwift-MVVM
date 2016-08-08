@@ -8,34 +8,50 @@
 
 import UIKit
 import RxSwift
-import SwiftyJSON
-import RxAlamofire
+import RxCocoa
+
 
 class DRWMessageViewModel: NSObject {
     
-    private let disposeBag = DisposeBag()
-
-    var messages: [DRResult<DRWMessageModel>]?
+    lazy var list = [DRResult<DRWMessageModel>]()
     
-    func loadMessage() -> Observable<Bool> {
-        let url = YRPBaseTool.shareTools.requestUrl(UrlParameter.Msg)
-       return Observable.create {[weak self] observer -> Disposable in
-
-        string(.GET, url,
-            parameters: ParametersAPI.Msg(userId: "32324157").parameters!)
+    var page: Int = 1
+    
+    func loadMessage(isPullupRefresh: Bool) -> Observable<Bool> {
+        if isPullupRefresh {
+            page += 1
+        } else {
+            page = 1
+        }
+        return DRRequestJSONModel(URLString: URLParameter.Msg, parameters: ParametersAPI.Msg(userId: "32324157").parameters!)
+            /**
+            *  回到主线程
+            */
             .observeOn(MainScheduler.instance)
+            /**
+            *  数据转模型
+            */
             .mapSwiftyArray(DRResult<DRWMessageModel>)
             .shareReplay(1)
-            .subscribe(
-                onNext: {[weak self] repos -> Void in
-                    self?.messages = repos
-                    observer.onCompleted()
-                },
-                onError: { (error) -> Void in
-                    observer.onError(error)
-            })
-            .addDisposableTo(self!.disposeBag)
-        return NopDisposable.instance
-        }
+            /**
+            *  如果出错返回空数组
+            */
+            .catchErrorJustReturn([])
+            .map({ [weak self] result in
+                if isPullupRefresh {
+                    // 将新数据拼接在现有数组的末尾
+                    self?.list += result
+                    if result.count > 0 {
+                        return true
+                    } else {
+                        return false
+                    }
+                } else {
+                    // 初始刷新&下拉刷新
+                    self?.list = result
+                    
+                    return true
+                }
+                })
     }
 }

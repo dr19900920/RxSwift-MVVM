@@ -10,13 +10,11 @@ import UIKit
 import SwiftyJSON
 
 class DRResult<T: DRSwiftyJSONAble>: DRSwiftyJSONAble {
-
-    var result: T?
     
     var element: T?
+    
     required init?(jsonData:JSON){
 
-        self.result = T(jsonData: jsonData["response"]["result"])
         self.element = T(jsonData: jsonData)
     }
 }

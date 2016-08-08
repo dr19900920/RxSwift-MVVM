@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F307DE11D581714007586C9 /* DRRequestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F307DE01D581714007586C9 /* DRRequestProvider.swift */; };
 		8F53BAAC1CE4670E00EAA199 /* DRWMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F53BAAB1CE4670E00EAA199 /* DRWMessageViewModel.swift */; };
 		8FBAC5633CB2E7E70F23250E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6578310EEE0A9FA8AD0C8258 /* Pods.framework */; };
 		8FF55A561CE45A8400267D6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF55A551CE45A8400267D6D /* AppDelegate.swift */; };
@@ -20,14 +21,13 @@
 		8FF55A771CE45B9400267D6D /* DRResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF55A721CE45B9400267D6D /* DRResult.swift */; };
 		8FF55A781CE45B9400267D6D /* DRSwiftyJSONAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF55A731CE45B9400267D6D /* DRSwiftyJSONAble.swift */; };
 		8FF55A7B1CE45B9400267D6D /* Observable+SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF55A761CE45B9400267D6D /* Observable+SwiftyJSON.swift */; };
-		8FF55A7E1CE45DB000267D6D /* YRPSeverApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF55A7D1CE45DB000267D6D /* YRPSeverApi.swift */; };
-		8FF55A811CE45F9000267D6D /* YRPBaseTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF55A801CE45F9000267D6D /* YRPBaseTool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		33E737A29B94F4F36E115BF7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6578310EEE0A9FA8AD0C8258 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EE85FBA9C0EBBD6C1CECA2F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8F307DE01D581714007586C9 /* DRRequestProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DRRequestProvider.swift; sourceTree = "<group>"; };
 		8F53BAAB1CE4670E00EAA199 /* DRWMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DRWMessageViewModel.swift; sourceTree = "<group>"; };
 		8FF55A521CE45A8400267D6D /* MVVM-Rxswift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVVM-Rxswift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF55A551CE45A8400267D6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,8 +42,6 @@
 		8FF55A721CE45B9400267D6D /* DRResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DRResult.swift; sourceTree = "<group>"; };
 		8FF55A731CE45B9400267D6D /* DRSwiftyJSONAble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DRSwiftyJSONAble.swift; sourceTree = "<group>"; };
 		8FF55A761CE45B9400267D6D /* Observable+SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+SwiftyJSON.swift"; sourceTree = "<group>"; };
-		8FF55A7D1CE45DB000267D6D /* YRPSeverApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRPSeverApi.swift; sourceTree = "<group>"; };
-		8FF55A801CE45F9000267D6D /* YRPBaseTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRPBaseTool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +86,9 @@
 		8FF55A541CE45A8400267D6D /* MVVM-Rxswift */ = {
 			isa = PBXGroup;
 			children = (
-				8FF55A821CE45F9600267D6D /* Tool */,
+				8FF55A731CE45B9400267D6D /* DRSwiftyJSONAble.swift */,
+				8FF55A761CE45B9400267D6D /* Observable+SwiftyJSON.swift */,
+				8FF55A721CE45B9400267D6D /* DRResult.swift */,
 				8FF55A7F1CE45DC100267D6D /* Network */,
 				8FF55A691CE45B3200267D6D /* View */,
 				8FF55A681CE45B3000267D6D /* ViewModel */,
@@ -105,9 +105,6 @@
 		8FF55A671CE45B2C00267D6D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8FF55A761CE45B9400267D6D /* Observable+SwiftyJSON.swift */,
-				8FF55A721CE45B9400267D6D /* DRResult.swift */,
-				8FF55A731CE45B9400267D6D /* DRSwiftyJSONAble.swift */,
 				8FF55A6D1CE45B5E00267D6D /* DRWMessageModel.swift */,
 			);
 			name = Model;
@@ -142,17 +139,9 @@
 		8FF55A7F1CE45DC100267D6D /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				8FF55A7D1CE45DB000267D6D /* YRPSeverApi.swift */,
+				8F307DE01D581714007586C9 /* DRRequestProvider.swift */,
 			);
 			name = Network;
-			sourceTree = "<group>";
-		};
-		8FF55A821CE45F9600267D6D /* Tool */ = {
-			isa = PBXGroup;
-			children = (
-				8FF55A801CE45F9000267D6D /* YRPBaseTool.swift */,
-			);
-			name = Tool;
 			sourceTree = "<group>";
 		};
 		BACB00EF1BC310AF5C6ABAD3 /* Frameworks */ = {
@@ -293,9 +282,8 @@
 				8FF55A561CE45A8400267D6D /* AppDelegate.swift in Sources */,
 				8FF55A781CE45B9400267D6D /* DRSwiftyJSONAble.swift in Sources */,
 				8F53BAAC1CE4670E00EAA199 /* DRWMessageViewModel.swift in Sources */,
+				8F307DE11D581714007586C9 /* DRRequestProvider.swift in Sources */,
 				8FF55A7B1CE45B9400267D6D /* Observable+SwiftyJSON.swift in Sources */,
-				8FF55A811CE45F9000267D6D /* YRPBaseTool.swift in Sources */,
-				8FF55A7E1CE45DB000267D6D /* YRPSeverApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

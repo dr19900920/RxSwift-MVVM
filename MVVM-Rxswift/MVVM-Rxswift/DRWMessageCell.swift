@@ -16,12 +16,13 @@ class DRWMessageCell: UITableViewCell {
     @IBOutlet weak var offerLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var message: DRResult<DRWMessageModel>? {
+    var message: DRWMessageModel? {
         didSet {
-            timeLabel.text = message!.element!.addtime
-            iconView.sd_setImageWithURL(NSURL(string: message!.element!.imgurl!)!)
-            offerLabel.text = message!.element!.show
-            nameLabel.text = message!.element!.nickname
+            if message == nil {return}
+            timeLabel.text = message!.addtime
+            iconView.sd_setImageWithURL(NSURL(string: message!.imgurl!)!)
+            offerLabel.text = message!.show
+            nameLabel.text = message!.nickname
         }
     }
     

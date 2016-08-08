@@ -16,14 +16,14 @@ private let kMessageCell = "kMessageCell"
 class ViewController: UIViewController {
     
     private let messagesViewModel = DRWMessageViewModel()
-    private let disposeBag = DisposeBag()
+    var dataSource: [DRResult<DRWMessageModel>]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
         
-        requestData()
+        requestPullDown()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,20 +38,29 @@ class ViewController: UIViewController {
         tableView.registerNib(nib, forCellReuseIdentifier: kMessageCell)
  
     }
-    
-    private func requestData() {
-    
-        messagesViewModel.loadMessage().subscribe(onNext: { (count) -> Void in
-            
-            }, onError: { (error) -> Void in
-                
-            }, onCompleted: { () -> Void in
-                
-            }) { () -> Void in
-                
-                self.tableView.reloadData()
-                
+    /**
+     下拉刷新
+     */
+    private func requestPullDown() {
+        weak var tempSelf = self
+        messagesViewModel.loadMessage(false).subscribeNext { (success) -> Void in
+            if success {
+            tempSelf!.dataSource = tempSelf!.messagesViewModel.list
+            }
+            self.tableView.reloadData()
         }.addDisposableTo(disposeBag)
+    }
+    /**
+     上拉加载-由于数据没有加分页,所以嘿嘿你懂得 这里 只是写一个例子
+     */
+    private func requestPullUp() {
+        weak var tempSelf = self
+        messagesViewModel.loadMessage(false).subscribeNext { (success) -> Void in
+            if success {
+                tempSelf!.dataSource = tempSelf!.messagesViewModel.list
+            }
+            self.tableView.reloadData()
+            }.addDisposableTo(disposeBag)
     }
     
     private lazy var tableView: UITableView = {
@@ -71,18 +80,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return messagesViewModel.messages?.count ?? 0
+        return dataSource?.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(kMessageCell, forIndexPath: indexPath) as! DRWMessageCell
-        cell.message = messagesViewModel.messages![indexPath.row]
+        cell.message = dataSource![indexPath.row].element
         return cell
     }
-    
-//    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 120
-//    }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 120
